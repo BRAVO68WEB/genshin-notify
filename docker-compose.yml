@@ -1,0 +1,33 @@
+version: "3"
+
+services:
+  app_1:
+    build: ./scrapper/
+    container_name: scrapper
+    links:
+      - "redis:redis"
+      - "mongo:mongo"  
+
+  app_2:
+    build: ./telegram/
+    container_name: telegram
+    links:
+      - "redis:redis"
+      - "mongo:mongo"
+  
+  mongo:
+    image: mongo
+    container_name: mongo
+    volumes:
+      - /data/db/mongo
+    ports:
+      - "27017:27017"
+
+  redis:
+    image: redis
+    container_name: redis
+    volumes:
+      - /data/db/redis
+    ports:
+      - "6379:6379"
+

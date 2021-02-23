@@ -1,0 +1,7 @@
+pymongo
+redis
+python-dotenv
+beautifulsoup4
+schedule
+requests
+lxml

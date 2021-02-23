@@ -3,7 +3,7 @@ Genshin Impact notifier about notices, leaks and promotion codes on differents p
 
 ### How to use
 
-- On Telegram: [@GenshinNotifyBot](t.me/GenshinNotifyBot)
+- On Telegram: [@GenshinNotifyBot](https://t.me/GenshinNotifyBot)
 - On Discord: [@GenshinNotify](https://discord.com/oauth2/authorize?client_id=813534602228269066&permissions=257088&scope=bot)
 - On Twitter: [@GenshinNotify](https://twitter.com/GenshinNotify)
 

@@ -17,9 +17,9 @@ jobs:
           username: ${{ secrets.SERVER_USERNAME }}
           password: ${{ secrets.SERVER_PASSWORD }}
           script: |
-          cd ${{ secrets.PROJECT_PATH }}
-          git checkout deploy
-          git pull origin deploy
-          gpg --quiet --batch --yes --decrypt --passphrase="${{ secrets.ENV_FILES_KEY }}" --output scrapper/.env scrapper/.env.gpg
-          gpg --quiet --batch --yes --decrypt --passphrase="${{ secrets.ENV_FILES_KEY }}" --output telegram/.env telegram/.env.gpg
-          docker-compose up -d --build
+            cd $PROJECT_PATH
+            git checkout deploy
+            git pull origin deploy
+            gpg --quiet --batch --yes --decrypt --passphrase="$ENV_FILES_KEY" --output scrapper/.env scrapper/.env.gpg
+            gpg --quiet --batch --yes --decrypt --passphrase="$ENV_FILES_KEY" --output telegram/.env telegram/.env.gpg
+            docker-compose up -d --build

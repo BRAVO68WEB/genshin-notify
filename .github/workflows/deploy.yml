@@ -12,10 +12,14 @@ jobs:
       - uses: actions/checkout@v2
       - name: Push to server
         uses: appleboy/ssh-action@master
+        env:
+          ENV_FILES_KEY: ${{ secrets.ENV_FILES_KEY }}
+          PROJECT_PATH: ${{ secrets.PROJECT_PATH }}
         with:
           host: ${{ secrets.SERVER_IP }}
           username: ${{ secrets.SERVER_USER }}
           password: ${{ secrets.SERVER_PWD }}
+          envs: ENV_FILES_KEY,PROJECT_PATH
           script: |
             cd $PROJECT_PATH
             git checkout deploy

@@ -15,6 +15,12 @@ services:
       - "redis:redis"
       - "mongo:mongo"
   
+  app_3:
+    build: ./twitter/
+    container_name: twitter
+    links:
+      - "redis:redis"
+
   mongo:
     image: mongo
     container_name: mongo

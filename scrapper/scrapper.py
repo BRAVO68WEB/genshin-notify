@@ -25,7 +25,6 @@ def scrapper():
         return
         
     new_codes = checkNewCodes(scrap_codes,old_codes)
-
     if new_codes != []:
         for code in new_codes:
             logging.info("New code detected")
@@ -79,5 +78,4 @@ def checkNewCodes(scrap_codes,old_codes):
 def _formatter(result):
     result = {x.strip(): v.strip()
         for x, v in result.items()}
-
     return result

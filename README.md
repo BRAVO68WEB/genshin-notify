@@ -24,7 +24,7 @@ Genshin Impact notifier about notices, leaks and promotion codes on differents p
     
 #### Bots
 - [X] Telegram bot
-- [ ] Twitter bot
+- [X] Twitter bot
 - [ ] Discord bot
 
 ### How to run local
@@ -62,4 +62,16 @@ REDIS_PORT=6379
 MONGO_CONN=mongodb://mongo:27017
 MONGO_DB=genshinNotify
 MONGO_COLL=telegramSubs
+```
+
+```bash
+# Twitter .env file
+
+TWITTER_API_KEY=<YOUR_TWITTER_APP_API_KEY>
+TWITTER_API_SECRET=<YOUR_TWITTER_APP_SECRET_KEY>
+TWITTER_ACCESS_TOKEN=<YOUR_TWITTER_ACCESS_TOKEN>
+TWITTER_ACCESS_SECRET=<YOUR_TWITTER_ACCESS_SECRET>
+
+REDIS_HOST=localhost
+REDIS_PORT=6379
 ```

@@ -16,10 +16,10 @@ logging.basicConfig(format='%(asctime)s - %(message)s',level=logging.INFO)
 from Mongo import client as MongoClient
 from Redis import client as RedisClient
 
-from scrapper import scrapper
-
 MongoClient.start(MONGO_CONN,MONGO_DB,MONGO_COLL)
 RedisClient.start(REDIS_HOST,REDIS_PORT)
+
+from scrapper import scrapper
 
 schedule.every(10).minutes.do(scrapper)
 

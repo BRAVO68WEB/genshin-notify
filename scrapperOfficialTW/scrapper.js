@@ -26,9 +26,7 @@ async function scrapper(){
 
     let tweets = checkNewTweets(oldTweets,newTweets);
     
-    console.log(tweets);
-
-    if(tweets.length === 0){
+    if(tweets.length != 0){
         console.log("New tweets found");
         console.log("Sending notifications");
         for (tweet of tweets){

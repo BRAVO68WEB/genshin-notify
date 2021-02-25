@@ -32,7 +32,7 @@ services:
     image: mongo
     container_name: mongo
     volumes:
-      - /data/db/mongo
+      - /home/docker/data/mongo
     ports:
       - "27017:27017"
 
@@ -40,7 +40,7 @@ services:
     image: redis
     container_name: redis
     volumes:
-      - /data/db/redis
+      - /home/docker/data/redis
     ports:
       - "6379:6379"
 

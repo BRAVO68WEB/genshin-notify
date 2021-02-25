@@ -33,7 +33,7 @@ Genshin Impact notifier about notices, leaks and promotion codes on differents p
 2. Run the command
 
 ```bash
-docker compose up
+docker-compose up
 ```
 
 ### env files

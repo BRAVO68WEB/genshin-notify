@@ -11,7 +11,7 @@ Genshin Impact notifier about notices, leaks and promotion codes on differents p
 
 #### Scrappers
 - [X] Promotion codes
-- [ ] Notices
+- [X] Notices
 - [ ] Leaks
 
 #### Configuration

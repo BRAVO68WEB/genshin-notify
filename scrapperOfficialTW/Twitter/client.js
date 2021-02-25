@@ -10,7 +10,7 @@ const twitterClient = new TwitterClient({
 });
 
 function getLastOfficialTweets(){
-    return twitterClient.tweets.statusesUserTimeline({screen_name: "GenshinImpact"});
+    return twitterClient.tweets.statusesUserTimeline({screen_name: "GenshinImpact",include_rts:false});
 }
 
 module.exports = {

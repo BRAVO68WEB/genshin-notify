@@ -28,6 +28,12 @@ function parse(channel, message){
         console.log("Notification 'Code' received!");
         TwitterClient.tweetCode(message);
     }
+
+    if(channel == "officialTW"){
+        console.log("Notification 'OfficialTW' received!");
+        TwitterClient.retweetOfficial(message);
+    }
+
 }
 
 module.exports = {

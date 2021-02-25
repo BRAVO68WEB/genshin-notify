@@ -1,21 +1,28 @@
 version: "3"
 
 services:
-  app_1:
-    build: ./scrapper/
-    container_name: scrapper
+  scrapper_official_tw:
+    build: ./scrapperOfficialTW/
+    container_name: scrapperOfficialTW
+    links:
+      - "redis:redis"
+      - "mongo:mongo"
+
+  scrapper_codes:
+    build: ./scrapperCodes/
+    container_name: scrapperCodes
     links:
       - "redis:redis"
       - "mongo:mongo"  
 
-  app_2:
+  bot_telegram:
     build: ./telegram/
     container_name: telegram
     links:
       - "redis:redis"
       - "mongo:mongo"
   
-  app_3:
+  bot_twitter:
     build: ./twitter/
     container_name: twitter
     links:

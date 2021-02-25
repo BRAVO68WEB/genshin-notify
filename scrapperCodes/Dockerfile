@@ -1,6 +1,6 @@
 FROM python:3
 
-WORKDIR /usr/src/app/scrapper
+WORKDIR /usr/src/app/scrapperCodes
 
 COPY requirements.txt ./
 RUN pip install --no-cache-dir -r requirements.txt

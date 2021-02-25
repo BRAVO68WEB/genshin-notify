@@ -1,4 +1,4 @@
-from Telegram.Bot.bot import startBot, sendCode
+from Telegram.Bot.bot import startBot, sendCode, sendTweet
 from Subscribes import Subscribes
 
 def start(token):
@@ -6,3 +6,6 @@ def start(token):
 
 def notifyCode(code):
     sendCode(code)
+
+def notifyOfficialTW(tweet):
+    sendTweet(tweet)

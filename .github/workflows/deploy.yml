@@ -24,7 +24,8 @@ jobs:
             cd $PROJECT_PATH
             git checkout deploy
             git pull origin deploy
-            gpg --quiet --batch --yes --decrypt --passphrase="$ENV_FILES_KEY" --output scrapper/.env scrapper/.env.gpg
+            gpg --quiet --batch --yes --decrypt --passphrase="$ENV_FILES_KEY" --output scrapperCodes/.env scrapperCodes/.env.gpg
+            gpg --quiet --batch --yes --decrypt --passphrase="$ENV_FILES_KEY" --output scrapperOfficialTW/.env scrapperOfficialTW/.env.gpg
             gpg --quiet --batch --yes --decrypt --passphrase="$ENV_FILES_KEY" --output telegram/.env telegram/.env.gpg
             gpg --quiet --batch --yes --decrypt --passphrase="$ENV_FILES_KEY" --output twitter/.env twitter/.env.gpg
             docker-compose up -d --build

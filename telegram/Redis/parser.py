@@ -13,3 +13,8 @@ def parse(data):
             logging.info("Notification 'Code' received")
             BotAPI.notifyCode(message)
             logging.info("Notified to all users")
+
+        if channel == "officialTW":
+            logging.info("Notification 'OfficialTW' received")
+            BotAPI.notifyOfficialTW(message)
+            logging.info("Notified to all users")

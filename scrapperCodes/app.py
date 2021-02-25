@@ -11,6 +11,8 @@ MONGO_COLL = os.environ.get("MONGO_COLL")
 REDIS_HOST = os.environ.get("REDIS_HOST")
 REDIS_PORT = os.environ.get("REDIS_PORT")
 
+REPEAT_SCRAP_IN_MINUTES = os.environ.get("REPEAT_SCRAP_IN_MINUTES")
+
 logging.basicConfig(format='%(asctime)s - %(message)s',level=logging.INFO)
 
 from Mongo import client as MongoClient
@@ -21,7 +23,7 @@ RedisClient.start(REDIS_HOST,REDIS_PORT)
 
 from scrapper import scrapper
 
-schedule.every(10).minutes.do(scrapper)
+schedule.every(REPEAT_SCRAP_IN_MINUTES).minutes.do(scrapper)
 
 while True:
     schedule.run_pending()

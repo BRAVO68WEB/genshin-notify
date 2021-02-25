@@ -1,4 +1,4 @@
-const {tweet} = require("./bot");
+const {tweet, retweet} = require("./bot");
 
 function tweetCode(message){
 
@@ -15,6 +15,12 @@ function tweetCode(message){
 
 }
 
+function retweetOfficial(message){
+    let id = message.id;
+    retweet(id);
+}
+
 module.exports = {
+    retweetOfficial:retweetOfficial,
     tweetCode: tweetCode
 }

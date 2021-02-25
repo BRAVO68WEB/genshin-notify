@@ -11,7 +11,7 @@ Genshin Impact notifier about notices, leaks and promotion codes on differents p
 
 #### Scrappers
 - [X] Promotion codes
-- [ ] Notices
+- [X] Notices
 - [ ] Leaks
 
 #### Configuration
@@ -33,7 +33,7 @@ Genshin Impact notifier about notices, leaks and promotion codes on differents p
 2. Run the command
 
 ```bash
-docker compose up
+docker-compose up
 ```
 
 ### env files
@@ -41,7 +41,7 @@ docker compose up
 You need to create/edit the following .env files. There are templates uploaded in the corresponding folders.
 
 ```bash
-# Scrapper .env file
+# Scrapper Codes .env file
 
 REDIS_HOST=redis
 REDIS_PORT=6379
@@ -49,6 +49,29 @@ REDIS_PORT=6379
 MONGO_CONN=mongodb://mongo:27017
 MONGO_DB=genshinNotify
 MONGO_COLL=codes
+
+REPEAT_SCRAP_IN_MINUTES=10
+```
+
+```bash
+# Scrapper Official TW .env file
+
+TWITTER_API_KEY=<YOUR_TWITTER_APP_API_KEY>
+TWITTER_API_SECRET=<YOUR_TWITTER_APP_SECRET_KEY>
+TWITTER_ACCESS_TOKEN=<YOUR_TWITTER_ACCESS_TOKEN>
+TWITTER_ACCESS_SECRET=<YOUR_TWITTER_ACCESS_SECRET>
+
+TWITTER_ACCOUNT=GenshinImpact
+
+REDIS_HOST=redis
+REDIS_PORT=6379
+
+MONGO_CONN = mongodb://mongo:27017
+MONGO_DB=genshinNotify
+MONGO_COLL_TWEETS=officialTweets
+
+QUANT_TWEETS_EXTRACT=10
+REPEAT_SCRAP_IN_MINUTES=5
 ```
 
 ```bash
@@ -75,3 +98,4 @@ TWITTER_ACCESS_SECRET=<YOUR_TWITTER_ACCESS_SECRET>
 REDIS_HOST=localhost
 REDIS_PORT=6379
 ```
+

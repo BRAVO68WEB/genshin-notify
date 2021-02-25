@@ -16,6 +16,16 @@ def code(code):
 
     return msg
 
+def tweet(tweet):
+    tweet = json.loads(tweet)
+
+    msg = ("*New official tweet*\n"
+    "\n"
+    "See it [here]({})\n"
+    ).format(tweet["url"])
+
+    return msg
+    
 def start():
     msg = ("Welcome to Genshin Notify\n"
     "\n"

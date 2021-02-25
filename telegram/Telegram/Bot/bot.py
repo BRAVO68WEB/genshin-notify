@@ -25,3 +25,8 @@ def startBot(token):
 def sendCode(code):
     for sub in Subscribes.listAll():
         bot.send_message(chat_id=sub["chat_id"],text=Formatter.code(code),parse_mode='MarkdownV2')
+    
+def sendTweet(tweet):
+    for sub in Subscribes.listAll():
+        bot.send_message(chat_id=sub["chat_id"],text=Formatter.tweet(tweet),parse_mode='MarkdownV2')
+    

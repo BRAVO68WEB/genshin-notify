@@ -5,9 +5,9 @@ function start(){
 
     const redis = require("redis");
     const subscriber = redis.createClient(
-            parseInt(process.env.REDIS_PORT),
-            process.env.REDIS_HOST
-        );
+        parseInt(process.env.REDIS_PORT),
+        process.env.REDIS_HOST
+    );
 
     subscriber.on("message", function(channel, message) {
         message = JSON.parse(message);
@@ -15,9 +15,10 @@ function start(){
     });
     
     subscriber.subscribe("codes");
+    subscriber.subscribe("officialTW");
+
     subscriber.subscribe("leaks");
     subscriber.subscribe("notices");
-    subscriber.subscribe("official");
     subscriber.subscribe("updates");
     
 }

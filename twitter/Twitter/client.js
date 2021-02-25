@@ -7,7 +7,7 @@ function tweetCode(message){
     `Rewards: ${message.Rewards}\n` +
     `EU: ${message.EU}\n` +
     `NA: ${message.NA}\n` +
-    `SEA ${message.SEA}\n` +
+    `SEA: ${message.SEA}\n` +
     `\n` +
     `Redeem it here https://genshin.mihoyo.com/en/gift`;
 

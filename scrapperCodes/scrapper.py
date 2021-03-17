@@ -21,7 +21,7 @@ def scrapper():
     try:
         scrap_codes = scrapCodes()
     except RequestErrorException as e:
-        logging.warning("Status code %s", e.resp.status_code)
+        logging.warning("%s\nStatus code %s", e.message, e.resp.status_code)
         return
         
     new_codes = checkNewCodes(scrap_codes,old_codes)
@@ -40,7 +40,7 @@ def scrapCodes():
     resp = requests.get(WEB)
     
     if not resp:
-        raise RequestErrorException(resp=resp)
+        raise RequestErrorException(resp=resp,message="There was an error on the request")
 
     source = resp.text
     soup = BeautifulSoup(source, 'lxml')

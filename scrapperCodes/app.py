@@ -23,6 +23,7 @@ RedisClient.start(REDIS_HOST,REDIS_PORT)
 
 from scrapper import scrapper
 
+scrapper()
 schedule.every(int(REPEAT_SCRAP_IN_MINUTES)).minutes.do(scrapper)
 
 while True:

@@ -7,24 +7,30 @@ services:
     links:
       - "redis:redis"
       - "mongo:mongo"
+    depends_on:
+      - "bot_telegram"
+      - "bot_twitter"
 
   scrapper_codes:
     build: ./scrapperCodes/
     container_name: scrapperCodes
     links:
       - "redis:redis"
-      - "mongo:mongo"  
+      - "mongo:mongo"
+    depends_on:
+      - "bot_telegram"
+      - "bot_twitter"
 
   bot_telegram:
-    build: ./telegram/
-    container_name: telegram
+    build: ./botTelegram/
+    container_name: botTelegram
     links:
       - "redis:redis"
       - "mongo:mongo"
   
   bot_twitter:
-    build: ./twitter/
-    container_name: twitter
+    build: ./botTwitter/
+    container_name: botTwitter
     links:
       - "redis:redis"
 
@@ -32,15 +38,13 @@ services:
     image: mongo
     container_name: mongo
     volumes:
-      - /home/docker/data/mongo
+      - /home/docker/data/mongo:/data/mongo
     ports:
       - "27017:27017"
 
   redis:
     image: redis
     container_name: redis
-    volumes:
-      - /home/docker/data/redis
     ports:
       - "6379:6379"
 

@@ -1,4 +1,4 @@
-### /How to dev/MongoDB Schemas
+# /How to dev/MongoDB Schemas
 
 Schemas presented alphabetically
 

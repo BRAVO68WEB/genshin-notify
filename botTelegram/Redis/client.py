@@ -8,7 +8,7 @@ def start(host, port):
     logging.info("Connected to Redis")
 
     p = r.pubsub()
-    p.subscribe("codes","leaks","notices","officialTW","updates")
+    p.subscribe("codes","videos","tweets")
 
     listen(p)
 

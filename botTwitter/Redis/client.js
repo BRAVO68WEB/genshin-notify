@@ -15,11 +15,8 @@ function start(){
     });
     
     subscriber.subscribe("codes");
-    subscriber.subscribe("officialTW");
-    
-    subscriber.subscribe("leaks");
-    subscriber.subscribe("notices");
-    subscriber.subscribe("updates");
+    subscriber.subscribe("tweets");
+    subscriber.subscribe("videos")
     
 }
 
@@ -29,8 +26,8 @@ function parse(channel, message){
         TwitterClient.tweetCode(message);
     }
 
-    if(channel == "officialTW"){
-        console.log("Notification 'OfficialTW' received!");
+    if(channel == "tweets"){
+        console.log("Notification 'Tweet' received!");
         TwitterClient.retweetOfficial(message);
     }
 

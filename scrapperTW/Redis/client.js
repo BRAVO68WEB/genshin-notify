@@ -10,7 +10,7 @@ function publish(tweet){
         process.env.REDIS_HOST
     );
 
-    client.publish("officialTW",JSON.stringify(tweet));
+    client.publish("tweets",JSON.stringify(tweet));
     
     client.quit();
 

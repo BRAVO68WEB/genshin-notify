@@ -14,7 +14,7 @@ def parse(data):
             BotAPI.notifyCode(message)
             logging.info("Notified to all users")
 
-        if channel == "officialTW":
+        if channel == "tweets":
             logging.info("Notification 'OfficialTW' received")
             BotAPI.notifyOfficialTW(message)
             logging.info("Notified to all users")

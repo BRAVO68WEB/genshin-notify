@@ -1,4 +1,4 @@
-### /How to dev
+# /How to dev
 
 1. Create the .env files based on .env.template (More info in [this section](#env))
 2. Run the command

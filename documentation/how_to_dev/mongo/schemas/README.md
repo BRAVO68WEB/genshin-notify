@@ -36,7 +36,7 @@ Data extracted is from [gensh.in](https://www.gensh.in/events/promotion-codes)
 ```json
 {
   "id":"1370947797151850497",
-	"url":"https://www.twitter.com/GenshinImpact/status/1370947797151850497"
+  "url":"https://www.twitter.com/GenshinImpact/status/1370947797151850497"
 }
 ```
 

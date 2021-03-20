@@ -1,2 +1,2 @@
-### /How to dev/Redis PubSub Messages
+# /How to dev/Redis PubSub Messages
 

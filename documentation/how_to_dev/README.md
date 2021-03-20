@@ -1,10 +1,16 @@
 ### /How to dev
 
 1. Create the .env files based on .env.template (More info in [this section](#env))
-2. Run the command
+2. Run the command for build and all the modules
 
 ```bash
 docker-compose up -d --build
+```
+
+3. If you need to run only some modules you can do it like this:
+
+```bash
+docker-compose up -d --build module1 module2...
 ```
 
 ### Useful links

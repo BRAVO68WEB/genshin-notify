@@ -5,6 +5,7 @@ Schemas presented alphabetically
 1. [Codes](#Codes)
 2. [OfficialTweets](#OfficialTweets)
 3. [TelegramSubs](#TelegramSubs)
+4. [Videos](#Videos)
 
 ### Codes - [JSON Schema](codes.schema.json)
 

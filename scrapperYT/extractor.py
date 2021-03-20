@@ -36,9 +36,9 @@ def extractVideos():
             "description":video["snippet"]["description"]
         }
 
-        if (MongoClient.existVideo(videoId)):
+        if (MongoClient.existVideo(videoJson["id"])):
             break
-        logging.info("New video from {} detected - ID: {}".format(CHANNEL_ID,videoJson["videoId"]))
+        logging.info("New video from {} detected - ID: {}".format(CHANNEL_ID,videoJson["id"]))
         RedisClient.sendVideo(json.dumps(videoJson))
         logging.info("Notification sent")
         MongoClient.insertVideo(videoJson)

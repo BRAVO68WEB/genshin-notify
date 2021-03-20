@@ -22,13 +22,18 @@ function start(){
 
 function parse(channel, message){
     if(channel == "codes"){
-        console.log("Notification 'Code' received!");
+        console.log("Notification 'Code' received");
         TwitterClient.tweetCode(message);
     }
 
     if(channel == "tweets"){
-        console.log("Notification 'Tweet' received!");
+        console.log("Notification 'Tweet' received");
         TwitterClient.retweetOfficial(message);
+    }
+
+    if(channel == "videos"){
+        console.log("Notification 'Video' received");
+        TwitterClient.tweetVideo(message);
     }
 
 }

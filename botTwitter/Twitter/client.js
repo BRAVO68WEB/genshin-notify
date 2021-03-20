@@ -15,12 +15,23 @@ function tweetCode(message){
 
 }
 
+function tweetVideo(message){
+
+    var status = `New video from ${message.channel_title}!\n` +
+    `\n` +
+    `https://www.youtube.com/watch?v=${message.id}`;
+    tweet(status);
+
+}
+
 function retweetOfficial(message){
     let id = message.id;
     retweet(id);
 }
 
+
 module.exports = {
     retweetOfficial:retweetOfficial,
+    tweetVideo: tweetVideo,
     tweetCode: tweetCode
 }

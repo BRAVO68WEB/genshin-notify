@@ -1,5 +1,17 @@
 import json
 
+def video(video):
+    video = json.loads(video)
+    url = "https://www.youtube.com/watch?v={}".format(video["id"])
+
+    msg = ("*New video uploaded by {}\!*\n"
+    "\n"
+    "See it now [here]({})\n"
+    "\n"
+    ).format(video["channel_title"],url)
+
+    return msg    
+
 def code(code):
     code = json.loads(code)
 

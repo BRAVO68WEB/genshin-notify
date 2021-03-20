@@ -1,0 +1,5 @@
+pymongo
+redis
+python-dotenv
+schedule
+requests

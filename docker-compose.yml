@@ -21,6 +21,16 @@ services:
       - "bot_telegram"
       - "bot_twitter"
 
+  scrapper_yt:
+    build: ./scrapperYT/
+    container_name: scrapperYT
+    links:
+      - "redis:redis"
+      - "mongo:mongo"
+    depends_on:
+      - "bot_telegram"
+      - "bot_twitter"
+
   bot_telegram:
     build: ./botTelegram/
     container_name: botTelegram

@@ -1,0 +1,32 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "type": "object",
+    "properties": {
+        "Date Added": {
+            "type": "string"
+        },
+        "Rewards": {
+            "type": "string"
+        },
+        "Expired": {
+            "type": "string"
+        },
+        "EU": {
+            "type": "string"
+        },
+        "NA": {
+            "type": "string"
+        },
+        "SEA": {
+            "type": "string"
+        }
+        },
+    "required": [
+        "Date Added",
+        "Rewards",
+        "Expired",
+        "EU",
+        "NA",
+        "SEA"
+    ]
+}

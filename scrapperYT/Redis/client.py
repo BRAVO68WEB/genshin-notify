@@ -1,0 +1,12 @@
+import logging
+import redis
+
+redisClient  = None
+
+def start(host, port):
+    global redisClient
+    redisClient = redis.Redis(host=host, port=port, decode_responses=True)
+    logging.info("Connected to Redis")
+
+def sendVideo(video):
+    redisClient.publish("videos", video)

@@ -1,0 +1,62 @@
+# /How to dev/env files
+
+You need to create/edit the following .env files. There are templates uploaded in the corresponding folders.
+
+```bash
+# Scrapper Codes .env file
+
+REDIS_HOST=redis
+REDIS_PORT=6379
+
+MONGO_CONN=mongodb://mongo:27017
+MONGO_DB=genshinNotify
+MONGO_COLL=codes
+
+REPEAT_SCRAP_IN_MINUTES=10
+```
+
+```bash
+# Scrapper Official TW .env file
+
+TWITTER_API_KEY=<YOUR_TWITTER_APP_API_KEY>
+TWITTER_API_SECRET=<YOUR_TWITTER_APP_SECRET_KEY>
+TWITTER_ACCESS_TOKEN=<YOUR_TWITTER_ACCESS_TOKEN>
+TWITTER_ACCESS_SECRET=<YOUR_TWITTER_ACCESS_SECRET>
+
+TWITTER_ACCOUNT=<YOUR_TWITTER_ACCOUNT>
+
+REDIS_HOST=redis
+REDIS_PORT=6379
+
+MONGO_CONN = mongodb://mongo:27017
+MONGO_DB=genshinNotify
+MONGO_COLL_TWEETS=officialTweets
+
+QUANT_TWEETS_EXTRACT=10
+REPEAT_SCRAP_IN_MINUTES=5
+```
+
+```bash
+# Telegram .env file
+
+TELEGRAM_TOKEN=<YOUR_BOT_TOKEN>
+
+REDIS_HOST=redis
+REDIS_PORT=6379
+
+MONGO_CONN=mongodb://mongo:27017
+MONGO_DB=genshinNotify
+MONGO_COLL=telegramSubs
+```
+
+```bash
+# Twitter .env file
+
+TWITTER_API_KEY=<YOUR_TWITTER_APP_API_KEY>
+TWITTER_API_SECRET=<YOUR_TWITTER_APP_SECRET_KEY>
+TWITTER_ACCESS_TOKEN=<YOUR_TWITTER_ACCESS_TOKEN>
+TWITTER_ACCESS_SECRET=<YOUR_TWITTER_ACCESS_SECRET>
+
+REDIS_HOST=redis
+REDIS_PORT=6379
+```

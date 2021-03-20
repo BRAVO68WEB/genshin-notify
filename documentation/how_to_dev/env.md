@@ -1,4 +1,4 @@
-### /How to dev/env files
+# /How to dev/env files
 
 You need to create/edit the following .env files. There are templates uploaded in the corresponding folders.
 

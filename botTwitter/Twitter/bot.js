@@ -8,14 +8,14 @@ const twitterClient = new TwitterClient({
     accessTokenSecret: process.env.TWITTER_ACCESS_SECRET
 });
 
-function tweet(status){
+function tweet(id,status){
 
     twitterClient.tweets.statusesUpdate({status:status})
     .then(x => {
-        console.log("Tweeted!");
+        console.log(`[${id}] - Tweeted`);
     })
     .catch(x => {
-        console.error("There was an error on publishing tweet", x);
+        console.error(`[${id}] - There was an error on tweet`, x);
     });
 
 }
@@ -23,14 +23,25 @@ function tweet(status){
 function retweet(id){
     twitterClient.tweets.statusesRetweetById({id:id})
     .then(x => {
-        console.log("Retweeted")
+        console.log(`[${id}] - Retweeted`)
     })
     .catch(x => {
-        console.error("There was an error on retweeting", x);
+        console.error(`[${id}] - There was an error on retweet`, x);
+    });
+}
+
+function like(id){
+    twitterClient.tweets.favoritesCreate({id:id})
+    .then(x => {
+        console.log(`[${id}] - Liked`)
+    })
+    .catch(x => {
+        console.error(`[${id}] - There was an error on like`, x);
     });
 }
 
 module.exports = {
-  tweet:tweet,
-  retweet:retweet
+    like:like,
+    tweet:tweet,
+    retweet:retweet
 }

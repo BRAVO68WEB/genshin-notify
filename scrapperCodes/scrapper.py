@@ -12,33 +12,35 @@ class RequestErrorException(Exception):
     def __init__(self, message, resp):
         super().__init__(message)
         self.resp = resp
+        self.message = message
 
 
 def scrapper():
     logging.info("Running scrapper")
-    old_codes = getOldCodes()
 
     try:
-        scrap_codes = scrapCodes()
+        codes = _scrapCodes()
     except RequestErrorException as e:
         logging.warning("%s\nStatus code %s", e.message, e.resp.status_code)
         return
-        
-    new_codes = checkNewCodes(scrap_codes,old_codes)
-    if new_codes != []:
-        for code in new_codes:
-            logging.info("New code detected")
-            RedisClient.sendCode(json.dumps(code))
-            logging.info("Notification sent")
-        MongoClient.insertCodes(new_codes)
-        logging.info("Saved new codes on Mongo")
-    else:
-        logging.info("No new code detected")
 
-def scrapCodes():
+    for code in codes:
+
+        if MongoClient.existCode(code["id"]):
+            continue
+        else:
+            logging.info("[%s] - New code detected",code["id"])
+            RedisClient.sendCode(json.dumps(code))
+            logging.info("[%s] - Notification sent",code["id"])
+            MongoClient.insertCode(code)
+            logging.info("[%s] - Saved on Mongo",code["id"])
+
+    logging.info("Scrapper finished")
+
+def _scrapCodes():
 
     resp = requests.get(WEB)
-    
+
     if not resp:
         raise RequestErrorException(resp=resp,message="There was an error on the request")
 
@@ -57,23 +59,20 @@ def scrapCodes():
 
     results = list(map(_formatter,results))
     
-    return results
+    codes = []
+    for result in results:
+        code = {
+            "id":result["NA"],
+            "date_added":result["Date Added"],
+            "rewards":result["Rewards"],
+            "expired":result["Expired"],
+            "eu":result["EU"],
+            "na":result["NA"],
+            "sea":result["SEA"]
+        }
+        codes.append(code)
 
-def getOldCodes():
-    old_codes = list(MongoClient.listAllCodes())
-    return old_codes
-
-def checkNewCodes(scrap_codes,old_codes):
-
-    check_codes = [old_codes[index]['EU'] for index, i in enumerate(old_codes)]
-
-    new_codes = []
-
-    for scrap_code in scrap_codes:
-        if scrap_code['EU'] not in check_codes:
-            new_codes.append(scrap_code)    
-    
-    return new_codes
+    return codes
 
 def _formatter(result):
     result = {x.strip(): v.strip()

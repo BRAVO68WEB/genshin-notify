@@ -1,7 +1,6 @@
-import json
+import logging
 
 def video(video):
-    video = json.loads(video)
     url = "https://www.youtube.com/watch?v={}".format(video["id"])
 
     msg = ("*New video uploaded by {}\!*\n"
@@ -13,8 +12,6 @@ def video(video):
     return msg    
 
 def code(code):
-    code = json.loads(code)
-
     msg = ("*New code available\!*\n"
     "__Reward:__ {}\n"
     "\n"
@@ -24,17 +21,15 @@ def code(code):
     "\n"
     "Redeem right now [here](https://genshin.mihoyo.com/en/gift)\n"
     "\n"
-    ).format(code["Rewards"],code["EU"],code["NA"],code["SEA"])
+    ).format(code["rewards"],code["eu"],code["na"],code["sea"])
 
     return msg
 
 def tweet(tweet):
-    tweet = json.loads(tweet)
-
-    msg = ("*New official tweet*\n"
+    msg = ("*New tweet by {} *\n"
     "\n"
     "See it [here]({})\n"
-    ).format(tweet["url"])
+    ).format(tweet["user"], tweet["url"])
 
     return msg
     

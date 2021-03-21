@@ -48,7 +48,7 @@ services:
     image: mongo
     container_name: mongo
     volumes:
-      - /home/docker/data/mongo:/data/mongo
+      - /home/docker/mongo/data/:/data/db
     ports:
       - "27017:27017"
 

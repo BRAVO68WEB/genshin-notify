@@ -8,57 +8,41 @@ async function scrapper(){
 
     console.log("Running scrapper");
 
-    let oldTweets = getOldTweets();
-    let newTweets = getNewTweets();
-
+    let newTweets = _getNewTweets();
+    
     try{
-        oldTweets = await oldTweets;
-        newTweets = await newTweets;
+        tweets = await newTweets;
     } catch (e){
         console.error("There was an error extracting tweets", e);
         return;
     }
 
-    newTweets = newTweets.map(x => {
+    tweets = tweets.map(x => {
         let url = `https://www.twitter.com/${process.env.TWITTER_ACCOUNT}/status/${x.id_str}`;
-        return {"id":x.id_str, "url":url}
+        return {"id":x.id_str, "url":url, "user":x.user.screen_name}
     });
 
-    let tweets = checkNewTweets(oldTweets,newTweets);
-    
-    if(tweets.length != 0){
-        console.log("New tweets found");
-        console.log("Sending notifications");
-        for (tweet of tweets){
-            try{ 
-                RedisClient.publish(tweet);
-                MongoClient.saveTweet(tweet);
-            } catch (e){
-                console.error("There was saving/publishing tweets", e);
-                return;
-            }
+    for (tweet of tweets){
+        
+        if (await MongoClient.existTweet(tweet.id)) {
+            continue;
+        } else {
+            console.log(`[${tweet.id}] - New tweet detected`)
+            RedisClient.sendTweet(tweet);
+            console.log(`[${tweet.id}] - Notification sent`)
+            MongoClient.insertTweet(tweet);
+            console.log(`[${tweet.id}] - Saved on Mongo`)
+
         }
-        console.log("All notifications sent");
-    } else {
-        console.log("No new tweets found");
+
     }
 
+    console.log("Scrapper finished")
+
 }
 
-function getOldTweets(){
-    return MongoClient.getTweets();
-}
-
-function getNewTweets(){
+function _getNewTweets(){
     return TwitterClient.getLastOfficialTweets();
-}
-
-function checkNewTweets(oldTweets,newTweets){
-
-    return newTweets.filter(x => {
-        return !oldTweets.some(y => y.id === x.id);
-    });
-
 }
 
 module.exports = scrapper;

@@ -18,21 +18,23 @@ function start(){
     subscriber.subscribe("tweets");
     subscriber.subscribe("videos")
     
+    console.log("Connected to Redis")
+
 }
 
 function parse(channel, message){
     if(channel == "codes"){
-        console.log("Notification 'Code' received");
+        console.log(`[${message.id}] - Notification 'Code' received`);
         TwitterClient.tweetCode(message);
     }
 
     if(channel == "tweets"){
-        console.log("Notification 'Tweet' received");
-        TwitterClient.retweetOfficial(message);
+        console.log(`[${message.id}] - Notification 'Tweet' received`);
+        TwitterClient.shareTweet(message);
     }
 
     if(channel == "videos"){
-        console.log("Notification 'Video' received");
+        console.log(`[${message.id}] - Notification 'Video' received`);
         TwitterClient.tweetVideo(message);
     }
 

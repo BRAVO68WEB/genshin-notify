@@ -2,7 +2,7 @@ require('dotenv').config()
 
 const redis = require("redis");
 
-function publish(tweet){
+function sendTweet(tweet){
 
     const redis = require("redis");
     const client = redis.createClient(
@@ -17,5 +17,5 @@ function publish(tweet){
 }
 
 module.exports = {
-    publish:publish
+    sendTweet:sendTweet
 }

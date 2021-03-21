@@ -14,6 +14,7 @@ class RequestErrorException(Exception):
     def __init__(self, message, resp):
         super().__init__(message)
         self.resp = resp
+        self.message = message
 
 def extractVideos():
 
@@ -38,11 +39,11 @@ def extractVideos():
 
         if (MongoClient.existVideo(videoJson["id"])):
             break
-        logging.info("New video from {} detected - ID: {}".format(CHANNEL_ID,videoJson["id"]))
+        logging.info("[{}] - New video detected from {} ".format(videoJson["id"],videoJson["channel_title"]))
         RedisClient.sendVideo(json.dumps(videoJson))
-        logging.info("Notification sent")
+        logging.info("[{}] - Notification sent".format(videoJson["id"]))
         MongoClient.insertVideo(videoJson)
-        logging.info("Saved video on Mongo")
+        logging.info("[{}] - Saved on Mongo".format(videoJson["id"]))
 
     logging.info("Extractor finished")
 

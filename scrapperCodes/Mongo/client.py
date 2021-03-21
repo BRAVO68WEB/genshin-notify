@@ -11,10 +11,13 @@ def start(stringConn, db, aCollection):
     db = client[db]
     collection = db[aCollection]
 
-def insertCodes(codes):
+def existCode(id):
     global collection
-    collection.insert_many(codes)
+    row = collection.find_one({"id":id})
+    return row is not None
 
-def listAllCodes():
+def insertCode(code):
     global collection
-    return collection.find()
+    collection.insert_one(code)
+
+

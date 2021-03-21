@@ -2,31 +2,35 @@
     "$schema": "http://json-schema.org/draft-04/schema#",
     "type": "object",
     "properties": {
-        "Date Added": {
+        "id":{
             "type": "string"
         },
-        "Rewards": {
+        "date_added": {
             "type": "string"
         },
-        "Expired": {
+        "rewards": {
             "type": "string"
         },
-        "EU": {
+        "expired": {
             "type": "string"
         },
-        "NA": {
+        "eu": {
             "type": "string"
         },
-        "SEA": {
+        "na": {
+            "type": "string"
+        },
+        "sea": {
             "type": "string"
         }
         },
     "required": [
-        "Date Added",
-        "Rewards",
-        "Expired",
-        "EU",
-        "NA",
-        "SEA"
+        "id",
+        "date_added",
+        "rewards",
+        "expired",
+        "eu",
+        "na",
+        "sea"
     ]
 }

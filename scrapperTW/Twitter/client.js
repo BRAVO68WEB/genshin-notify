@@ -1,6 +1,7 @@
 require('dotenv').config()
 
 const {TwitterClient} = require("twitter-api-client");
+const QUANT_TWEETS_EXTRACT = process.env.QUANT_TWEETS_EXTRACT;
 
 const twitterClient = new TwitterClient({
     apiKey: process.env.TWITTER_API_KEY,
@@ -10,7 +11,11 @@ const twitterClient = new TwitterClient({
 });
 
 function getLastOfficialTweets(){
-    return twitterClient.tweets.statusesUserTimeline({screen_name: "GenshinImpact",include_rts:false});
+    return twitterClient.tweets.statusesUserTimeline({
+      screen_name: "GenshinImpact",
+      include_rts:false,
+      count:QUANT_TWEETS_EXTRACT
+    });
 }
 
 module.exports = {

@@ -1,4 +1,5 @@
 import logging
+import json
 from Telegram import client as BotAPI
 
 def parse(data):
@@ -7,19 +8,19 @@ def parse(data):
 
     if(msgType == "message"):
         channel = data["channel"]
-        message = data["data"]
+        message = json.loads(data["data"])
 
         if channel == "codes":
-            logging.info("Notification 'Code' received")
+            logging.info("[%s] - Notification 'Code' received",message["id"])
             BotAPI.notifyCode(message)
-            logging.info("Notified to all users")
+            logging.info("[%s] - Notified all users",message["id"])
 
         if channel == "tweets":
-            logging.info("Notification 'Tweet' received")
+            logging.info("[%s] - Notification 'Tweet' received",message["id"])
             BotAPI.notifyTweet(message)
-            logging.info("Notified to all users")
+            logging.info("[%s] - Notified all users",message["id"])
 
         if channel == "videos":
-            logging.info("Notification 'Video' received")
+            logging.info("[%s] - Notification 'Video' received",message["id"])
             BotAPI.notifyVideo(message)
-            logging.info("Notified to all users")
+            logging.info("[%s] - Notified all users",message["id"])

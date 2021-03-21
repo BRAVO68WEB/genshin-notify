@@ -3,14 +3,18 @@
     "type": "object",
     "properties": {
         "id": {
-        "type": "string"
+            "type": "string"
         },
         "url": {
-        "type": "string"
+            "type": "string"
+        },
+        "user": {
+            "type": "string"
         }
     },
     "required": [
         "id",
-        "url"
+        "url",
+        "user"
     ]
 }

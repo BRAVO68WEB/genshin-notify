@@ -4,7 +4,7 @@
     <img src="https://github.com/CDNievas/genshin-notify/blob/main/documentation/how_to_dev/redis/pubsub.png">
 </p>
 
-Structure of the different messages
+## Messages
 
 ### Codes
 

@@ -15,7 +15,7 @@ There are three bots (Telegram, Discord and Twitter) that will notify you when t
 - Tweets when new code is published in [gensh.in](https://www.gensh.in/)
 - Tweets when [taka gg](https://www.youtube.com/channel/UC65Haje10c2f5zSQjeJXI2A) uploads a video in YouTube
 
-##### Telegram - [@GenshinNotify](https://t.me/GenshinNotifyBot)
+##### Telegram - [@GenshinNotifyBot](https://t.me/GenshinNotifyBot)
 *If you are subscribed to the bot with the command* ***/subscribe***
 - Send a message when a new tweet is published from the official account [@GenshinImpact](https://twitter.com/GenshinImpact)
 - Send a message when new code is published in [gensh.in](https://www.gensh.in/)

@@ -18,4 +18,4 @@ docker-compose up -d --build module1 module2...
 - [MongoDB Schemas](mongo/schemas/)
 - [Redis PubSub Messages](redis/)
 - [Env Files](env.md)
-- [Components/Deploy Diagram]()
+- [Components Diagram](components/)

@@ -10,34 +10,13 @@ Genshin Impact notifier about notices, leaks and promotion codes on differents p
 
 There are three bots (Telegram, Discord and Twitter) that will notify you when there are news, leaks or promotion codes in the Genshin Impact Game. The format of the notification and configurations depends on the platform used... 
 
-##### Twitter
-- Retweets from official account [@GenshinImpact](https://twitter.com/GenshinNotify)
+##### Twitter - [@GenshinNotify](https://twitter.com/GenshinNotify)
+- Retweets from official account [@GenshinImpact](https://twitter.com/GenshinImpact)
 - Tweets when new code is published in [gensh.in](https://www.gensh.in/)
+- Tweets when [taka gg](https://www.youtube.com/channel/UC65Haje10c2f5zSQjeJXI2A) uploads a video in YouTube
 
-##### Telegram
+##### Telegram - [@GenshinNotifyBot](https://t.me/GenshinNotifyBot)
 *If you are subscribed to the bot with the command* ***/subscribe***
-- Send a message when a new tweet is published from the official account [@GenshinImpact](https://twitter.com/GenshinNotify)
+- Send a message when a new tweet is published from the official account [@GenshinImpact](https://twitter.com/GenshinImpact)
 - Send a message when new code is published in [gensh.in](https://www.gensh.in/)
-
-##### Discord
-- TODO
-
-### TODO
-
-##### Scrappers
-- [X] Promotion codes
-- [X] Notices
-- [ ] Leaks
-
-##### Configuration
-- [ ] Add multi-language support (ES/EN)
-    - [ ] on Telegram
-    - [ ] on Discord
-- [ ] Choose what type of information you want to receive (leaks, notices, promotion codes, ...)
-    - [ ] on Telegram
-    - [ ] on Discord
-
-##### Bots
-- [X] Telegram bot
-- [X] Twitter bot
-- [ ] Discord bot
+- Send a message when [taka gg](https://www.youtube.com/channel/UC65Haje10c2f5zSQjeJXI2A) uploads a video in YouTube
